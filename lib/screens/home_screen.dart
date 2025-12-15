@@ -13,6 +13,7 @@ import '../models/health_record.dart';
 import '../widgets/health_card.dart';
 import 'add_record_screen.dart';
 import 'history_screen.dart';
+import 'gallery_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,6 +25,15 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Health Tracker'),
         elevation: 0,
         actions: [
+          IconButton(
+            icon: const Icon(Icons.photo_library_outlined),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const GalleryScreen()),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.history),
             onPressed: () {
@@ -302,15 +312,19 @@ class HomeScreen extends StatelessWidget {
             children: [
               Icon(icon, size: 18, color: Colors.grey[700]),
               const SizedBox(width: 6),
-              Text(
-                label,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey[700]),
+              Expanded(
+                child: Text(
+                  label,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey[700]),
+                ),
               ),
             ],
           ),
           const SizedBox(height: 8),
           Text(
             value,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w700,
                   color: Colors.black87,

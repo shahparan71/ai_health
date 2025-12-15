@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to your photos to show your gallery images.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We need permission to modify photos when you delete images.</string>
 </dict>
 </plist>
